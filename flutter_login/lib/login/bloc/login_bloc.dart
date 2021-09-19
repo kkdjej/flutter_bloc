@@ -11,8 +11,8 @@ part 'login_state.dart';
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
   LoginBloc({
     required AuthenticationRepository authenticationRepository,
-  }): _authenticationRepository = authenticationRepository,
-  super(const LoginState());
+  })  : _authenticationRepository = authenticationRepository,
+        super(const LoginState());
 
   final AuthenticationRepository _authenticationRepository;
 
@@ -64,7 +64,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         );
 
         yield state.copyWith(status: FormzStatus.submissionSuccess);
-      } on Exception catch(_) {
+      } on Exception catch (_) {
         yield state.copyWith(status: FormzStatus.submissionFailure);
       }
     }

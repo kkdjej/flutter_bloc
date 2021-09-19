@@ -19,7 +19,7 @@ class TimerView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: const Text("Flutter TImer")),
+        appBar: AppBar(title: const Text("Flutter Timer")),
         body: Stack(children: [
           const Background(),
           Column(
