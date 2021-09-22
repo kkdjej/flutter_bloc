@@ -40,8 +40,7 @@ Weather _$WeatherFromJson(Map<String, dynamic> json) {
       humidity: $checkedConvert(json, 'humidity', (v) => v as int),
       visibility:
           $checkedConvert(json, 'visibility', (v) => (v as num).toDouble()),
-      predicatability:
-          $checkedConvert(json, 'predicatability', (v) => v as int),
+      predictability: $checkedConvert(json, 'predictability', (v) => v as int),
     );
     return val;
   }, fieldKeyMap: const {

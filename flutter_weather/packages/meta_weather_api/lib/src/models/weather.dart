@@ -67,7 +67,7 @@ class Weather {
     required this.airPressure,
     required this.humidity,
     required this.visibility,
-    required this.predicatability,
+    required this.predictability,
   });
 
   factory Weather.fromJson(Map<String, dynamic> json) =>
@@ -89,5 +89,5 @@ class Weather {
   final double airPressure;
   final int humidity;
   final double visibility;
-  final int predicatability;
+  final int predictability;
 }

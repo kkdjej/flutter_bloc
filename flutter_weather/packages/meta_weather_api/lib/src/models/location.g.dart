@@ -31,6 +31,7 @@ K _$enumDecode<K, V>(
   K? unknownValue,
 }) {
   if (source == null) {
+    print('ArgumentError');
     throw ArgumentError(
       'A value must be provided. Supported values: '
       '${enumValues.values.join(', ')}',
