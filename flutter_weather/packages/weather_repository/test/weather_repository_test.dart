@@ -92,6 +92,48 @@ void main() {
               condition: WeatherCondition.rainy,
             ));
       });
+      test('returns correct weather on success (heavy cloud)', () async {
+        final location = MockLocation();
+        final weather = MockWeather();
+        when(() => location.woeid).thenReturn(woeid);
+        when(() => location.title).thenReturn('London');
+        when(() => weather.weatherStateAbbr)
+            .thenReturn(meta_weather_api.WeatherState.heavyCloud);
+        when(() => weather.theTemp).thenReturn(42.42);
+        when(() => metaWeatherApiClient.locationSearch(any()))
+            .thenAnswer((_) async => location);
+        when(() => metaWeatherApiClient.getWeather(any()))
+            .thenAnswer((_) async => weather);
+        final actual = await weatherRepository.getWeather(city);
+        expect(
+            actual,
+            Weather(
+                temperature: 42.42,
+                location: 'London',
+                condition: WeatherCondition.cloudy));
+      });
+
+      test('returns correct weather on success (light cloud)', () async {
+        final location = MockLocation();
+        final weather = MockWeather();
+        when(() => location.woeid).thenReturn(woeid);
+        when(() => location.title).thenReturn('London');
+        when(() => weather.weatherStateAbbr)
+            .thenReturn(meta_weather_api.WeatherState.lightCloud);
+        when(() => weather.theTemp).thenReturn(42.42);
+        when(() => metaWeatherApiClient.locationSearch(any()))
+            .thenAnswer((_) async => location);
+        when(() => metaWeatherApiClient.getWeather(any()))
+            .thenAnswer((_) async => weather);
+        final actual = await weatherRepository.getWeather(city);
+        expect(
+            actual,
+            Weather(
+              temperature: 42.42,
+              location: 'London',
+              condition: WeatherCondition.cloudy,
+            ));
+      });
     });
   });
 }
