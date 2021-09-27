@@ -61,7 +61,6 @@ class WeatherCubit extends HydratedCubit<WeatherState> {
     final units = state.temperatureUnits.isFahrenheit
         ? TemperatureUnits.celsius
         : TemperatureUnits.fahrenheit;
-
     if (!state.status.isSuccess) {
       emit(state.copyWith(temperatureUnits: units));
       return;
