@@ -14,15 +14,16 @@ class AuthenticationBloc
     required UserRepository userRepository,
   })  : _authenticationRepository = authenticationRepository,
         _userRepository = userRepository,
-        super(const AuthenticationState.unknwon()) {
-          _authenticationStatusSubscription = _authenticationRepository.status.listen(
-            (status) => add(AuthenticationStatusChanged(status)),
-          );
-        }
+        super(const AuthenticationState.unknown()) {
+    _authenticationStatusSubscription = _authenticationRepository.status.listen(
+      (status) => add(AuthenticationStatusChanged(status)),
+    );
+  }
 
   final AuthenticationRepository _authenticationRepository;
   final UserRepository _userRepository;
-  late StreamSubscription<AuthenticationStatus> _authenticationStatusSubscription;
+  late StreamSubscription<AuthenticationStatus>
+      _authenticationStatusSubscription;
 
   @override
   Stream<AuthenticationState> mapEventToState(
@@ -45,15 +46,16 @@ class AuthenticationBloc
   Future<AuthenticationState> _mapAuthenticationStatusChangedToState(
     AuthenticationStatusChanged event,
   ) async {
-    switch(event.status) {
+    switch (event.status) {
       case AuthenticationStatus.unauthenticated:
         return const AuthenticationState.unauthenticated();
       case AuthenticationStatus.authenticated:
         final user = await _tryGetUser();
-        return user != null 
-          ? AuthenticationState.authenticated(user) : const AuthenticationState.unauthenticated();
+        return user != null
+            ? AuthenticationState.authenticated(user)
+            : const AuthenticationState.unauthenticated();
       default:
-        return const AuthenticationState.unknwon();
+        return const AuthenticationState.unknown();
     }
   }
 
