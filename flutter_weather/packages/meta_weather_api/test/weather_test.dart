@@ -5,7 +5,7 @@ void main() {
   group('Weather', () {
     group('fromJson', () {
       test(
-          'returns WeatherState.unknwon '
+          'returns WeatherState.unknown '
           'for unsupported weather_state_abbr', () {
         expect(
             Weather.fromJson(<String, dynamic>{
@@ -26,7 +26,7 @@ void main() {
               'predictability': 73,
             }),
             isA<Weather>().having(
-                (w) => w.weatherStateAbbr, 'abbr', WeatherState.unknwon));
+                (w) => w.weatherStateAbbr, 'abbr', WeatherState.unknown));
       });
     });
   });

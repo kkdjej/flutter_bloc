@@ -45,7 +45,7 @@ void main() {
       final snowyWeather = MockWeather(WeatherCondition.snowy);
       final cloudyWeather = MockWeather(WeatherCondition.cloudy);
       final rainyWeather = MockWeather(WeatherCondition.rainy);
-      final unknownWeather = MockWeather(WeatherCondition.unknwon);
+      final unknownWeather = MockWeather(WeatherCondition.unknown);
       blocTest<ThemeCubit, Color>(
           'emits correct color for WeatherCondition.clear',
           build: () => ThemeCubit(),

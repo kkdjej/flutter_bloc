@@ -50,7 +50,7 @@ class Weather extends Equatable {
   }
 
   static final empty = Weather(
-    condition: WeatherCondition.unknwon,
+    condition: WeatherCondition.unknown,
     lastUpdated: DateTime(0),
     temperature: const Temperature(value: 0),
     location: '--',

@@ -23,7 +23,7 @@ enum WeatherState {
   lightCloud,
   @JsonValue('c')
   clear,
-  unknwon
+  unknown
 }
 
 extension WeatherStateX on WeatherState {
@@ -75,7 +75,7 @@ class Weather {
 
   final int id;
   final String weatherStateName;
-  @JsonKey(unknownEnumValue: WeatherState.unknwon)
+  @JsonKey(unknownEnumValue: WeatherState.unknown)
   final WeatherState weatherStateAbbr;
   @JsonKey(unknownEnumValue: WindDirectionCompass.unknown)
   final WindDirectionCompass windDirectionCompass;

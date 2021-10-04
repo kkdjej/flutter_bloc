@@ -18,7 +18,7 @@ Weather _$WeatherFromJson(Map<String, dynamic> json) {
           json,
           'weather_state_abbr',
           (v) => _$enumDecode(_$WeatherStateEnumMap, v,
-              unknownValue: WeatherState.unknwon)),
+              unknownValue: WeatherState.unknown)),
       windDirectionCompass: $checkedConvert(
           json,
           'wind_direction_compass',
@@ -94,7 +94,7 @@ const _$WeatherStateEnumMap = {
   WeatherState.heavyCloud: 'hv',
   WeatherState.lightCloud: 'lc',
   WeatherState.clear: 'c',
-  WeatherState.unknwon: 'unknwon',
+  WeatherState.unknown: 'unknown',
 };
 
 const _$WindDirectionCompassEnumMap = {
